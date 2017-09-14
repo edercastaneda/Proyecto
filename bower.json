@@ -20,6 +20,11 @@
     "font-awesome": "^4.7.0",
     "select2": "^4.0.3",
     "Ionicons": "ionicons#^2.0.1",
-    "iCheck": "^1.0.2"
+    "iCheck": "^1.0.2",
+    "datatables": "^1.10.16",
+    "datatables-buttons": "^1.4.1",
+    "datatables-colvis": "^1.1.2",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "bootstrap-fileinput": "^4.4.1"
   }
 }

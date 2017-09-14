@@ -15,6 +15,9 @@
 
 <link rel="stylesheet" href="{{asset("bower/Ionicons/css/ionicons.min.css")}}">
 <link rel="stylesheet" href="{{asset("bower/iCheck/skins/square/_all.css")}}">
+<!--Data tables-->
+    <link rel="stylesheet" href="{{asset('plugins/DataTables/datatables.min.css')}}">
+    
     @yield('css')
 </head>
 
