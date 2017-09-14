@@ -1,0 +1,21 @@
+{
+  "name": "proyecto",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Eder Castañeda <eder_thebb@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/InfyOmLabs/adminlte-generator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
