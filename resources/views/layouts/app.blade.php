@@ -24,7 +24,7 @@
 
         <!-- Logo -->
         <a href="#" class="logo">
-            <b>InfyOm</b>
+            <b>IMED</b>
         </a>
 
         <!-- Header Navbar -->
