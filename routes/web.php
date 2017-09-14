@@ -19,3 +19,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('docentes', 'DocenteController');
+
+Route::resource('cursos', 'CursoController');
+
+Route::resource('grados', 'GradoController');
+
+Route::get('pruebas', function () {
+   // echo "prueba";
+   $docente = \App\Models\Docente::find(1);
+   foreach ($docente->cursos as $curso){
+       dump($curso->nombre);
+
+   }
+});
+
+Route::resource('cursos', 'CursoController');
+
+Route::resource('cursos', 'CursoController');
