@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
+use App\Models\AlumnoImage;
+use App\Models\TempFile;
 use App\Repositories\AlumnoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -43,6 +46,9 @@ class AlumnoController extends AppBaseController
      */
     public function create()
     {
+        //elimina los archivos temporales
+        $tempFiles = TempFile::where('user_id',Auth::user()->id)->delete();
+
         return view('alumnos.create');
     }
 
@@ -58,6 +64,26 @@ class AlumnoController extends AppBaseController
         $input = $request->all();
 
         $alumno = $this->alumnoRepository->create($input);
+
+        $tempFiles = TempFile::where('user_id',Auth::user()->id)->get();
+
+        $alumnoImages = collect();
+        foreach ($tempFiles as $file){
+
+            $datos= [
+                'alumno_id' => $alumno->id,
+                'data' => $file->data,
+                'nombre' => $file->nombre,
+                'type' => $file->type,
+                'size' => $file->size,
+                'extension' => $file->extension
+            ];
+
+            $alumnoImages->push(New AlumnoImage($datos));
+
+        }
+
+        $alumno->alumnoImages()->saveMany($alumnoImages);
 
         Flash::success('Alumno saved successfully.');
 
