@@ -38,3 +38,9 @@ Route::get('pruebas', function () {
 Route::resource('cursos', 'CursoController');
 
 Route::resource('cursos', 'CursoController');
+
+Route::resource('alumnos', 'AlumnoController');
+
+Route::resource('alumnos', 'AlumnoController');
+
+Route::resource('alumnos', 'AlumnoController');
