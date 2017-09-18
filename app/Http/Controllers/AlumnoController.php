@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\AlumnoDataTable;
+use App\Http\Requests;
 use App\Http\Requests\CreateAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
-use App\Models\AlumnoImage;
-use App\Models\TempFile;
 use App\Repositories\AlumnoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
-use Illuminate\Support\Facades\Auth;
-use Prettus\Repository\Criteria\RequestCriteria;
+use App\Http\Controllers\AppBaseController;
 use Response;
 
 class AlumnoController extends AppBaseController
@@ -27,16 +24,12 @@ class AlumnoController extends AppBaseController
     /**
      * Display a listing of the Alumno.
      *
-     * @param Request $request
+     * @param AlumnoDataTable $alumnoDataTable
      * @return Response
      */
-    public function index(Request $request)
+    public function index(AlumnoDataTable $alumnoDataTable)
     {
-        $this->alumnoRepository->pushCriteria(new RequestCriteria($request));
-        $alumnos = $this->alumnoRepository->paginate(10);
-
-        return view('alumnos.index')
-            ->with('alumnos', $alumnos);
+        return $alumnoDataTable->render('alumnos.index');
     }
 
     /**
