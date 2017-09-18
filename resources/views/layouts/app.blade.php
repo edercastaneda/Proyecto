@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('plugins/DataTables/datatables.min.css')}}">
     
     @yield('css')
+    @stack('css')
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -108,5 +109,6 @@
 <script src="{{asset("js/app.min.js")}}"></script>
 
 @yield('scripts')
+@stack('scripts')
 </body>
 </html>
