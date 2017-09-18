@@ -62,5 +62,11 @@ class Alumno extends Model
         
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function alumnoImages()
+    {
+        return $this->hasMany(AlumnoImage::class);
+    }
 }
