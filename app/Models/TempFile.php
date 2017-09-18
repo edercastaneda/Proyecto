@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class TempFile extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public $table = 'temp_files';
     
