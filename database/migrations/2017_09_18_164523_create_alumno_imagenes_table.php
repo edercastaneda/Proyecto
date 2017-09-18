@@ -13,9 +13,9 @@ class CreateAlumnoImagenesTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumno_imagenes', function (Blueprint $table) {
+        Schema::create('alumno_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('alumno_id')->index('fk_alumno_imagenes_alumnos1_idx');
+            $table->integer('alumno_id')->index('fk_alumno_images_alumnos1_idx');
             $table->binary('data', 65535);
             $table->string('nombre');
             $table->string('type');
@@ -33,6 +33,6 @@ class CreateAlumnoImagenesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumno_imagenes');
+        Schema::dropIfExists('alumno_images');
     }
 }
