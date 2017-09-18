@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@include('components.plugins.bootstrap_fileinput')
+
 @section('content')
     <section class="content-header">
         <h1>
