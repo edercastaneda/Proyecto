@@ -59,7 +59,11 @@ class Alumno extends Model
      * @var array
      */
     public static $rules = [
-        
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'direccion' => 'nullable',
+        'telefono' => 'nullable',
+        'responsable' => 'nullable'
     ];
 
     /**
