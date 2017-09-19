@@ -6,9 +6,12 @@ use App\DataTables\AlumnoDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
+use App\Models\AlumnoImage;
+use App\Models\TempFile;
 use App\Repositories\AlumnoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class AlumnoController extends AppBaseController
