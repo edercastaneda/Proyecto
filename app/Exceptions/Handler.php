@@ -42,9 +42,28 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        if ($e instanceof AuthenticationException) {
+            return redirect()->guest(route('login'));
+        }
+        // Verificamos si el debug esta activo
+        elseif (config('app.debug') ) {
+            // Creamos una nueva instancia de la clase Run
+            $whoops = new \Whoops\Run;
+            // Registramos el manejador "pretty handler"
+            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+
+            // Retornamos una nueva respuesta
+            return response()->make(
+                $whoops->handleException($e),
+                method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500,
+                method_exists($e, 'getHeaders') ? $e->getHeaders() : []
+            );
+        }
+        // Si debug == false : retornamos la respuesta para la excepción
+//        return parent::convertExceptionToResponse($e);
+        return parent::render($request, $e);
     }
 
     /**
